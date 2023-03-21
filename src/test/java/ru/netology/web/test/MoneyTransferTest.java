@@ -44,12 +44,12 @@ public class MoneyTransferTest {
         var dashboardPage = new DashboardPage();
         int cardOneBalance = dashboardPage.getCardBalance(1);
         int cardTwoBalance = dashboardPage.getCardBalance(2);
-        var firstCard = DataHelper.getCard(1);
+        var secondCard = DataHelper.getCard(2);
         int amount = 2000;
-        var moneyTransferPage = dashboardPage.transferMoneyTo(firstCard);
-        moneyTransferPage.transferMoneyFrom(2, amount);
-        assertEquals(cardOneBalance + amount, dashboardPage.getCardBalance(1));
-        assertEquals(cardTwoBalance - amount, dashboardPage.getCardBalance(2));
+        var moneyTransferPage = dashboardPage.transferMoneyTo(secondCard);
+        moneyTransferPage.transferMoneyFrom(1, amount);
+        assertEquals(cardOneBalance - amount, dashboardPage.getCardBalance(1));
+        assertEquals(cardTwoBalance + amount, dashboardPage.getCardBalance(2));
     }
 
     @Test
