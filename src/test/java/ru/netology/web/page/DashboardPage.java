@@ -23,8 +23,8 @@ public class DashboardPage {
         subtitle.shouldBe(visible);
     }
 
-    public MoneyTransferPage transferMoneyTo(int id) {
-        cards.findBy(attribute("data-test-id", DataHelper.getCard(id).getDataTestId()))
+    public MoneyTransferPage transferMoneyTo(DataHelper.Card card) {
+        cards.findBy(attribute("data-test-id", card.getDataTestId()))
                 .find(".button").click();
         return new MoneyTransferPage();
     }
